@@ -1,6 +1,9 @@
 package com.lifehackstudio.lifehacktest.card
 
+import android.content.Intent
 import android.location.Location
+import androidx.core.content.ContextCompat.startActivity
+import androidx.core.net.toUri
 import com.lifehackstudio.lifehacktest.toPhoneNumber
 import com.lifehackstudio.lifehacktest.web.TestApiService
 import io.reactivex.Observable
@@ -37,8 +40,19 @@ class CardPresenter(private val view: View) {
                 view.updateSite(result.www)
             }, { error ->
                 error.printStackTrace()
-                view.showError()
+                view.showErrorLoad()
             }).also { compositeDisposable.add(it) }
+    }
+
+    fun onLocationClicked() {
+        if (location.latitude == 0.0 && location.longitude == 0.0){
+            view.showErrorLocation()
+        } else {
+            val intent = Intent(Intent.ACTION_VIEW).apply {
+                data = "geo:${location.latitude},${location.longitude}".toUri()
+            }
+            view.showLocation(intent)
+        }
     }
 
     interface View {
@@ -48,6 +62,9 @@ class CardPresenter(private val view: View) {
         fun updatePhone(phone: String)
         fun updateSite(site: String)
 
-        fun showError()
+        fun showLocation(intent: Intent)
+
+        fun showErrorLoad()
+        fun showErrorLocation()
     }
 }

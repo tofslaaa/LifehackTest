@@ -1,7 +1,6 @@
 package com.lifehackstudio.lifehacktest.home
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +8,8 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.bumptech.glide.request.RequestOptions
 import com.lifehackstudio.lifehacktest.R
 import com.lifehackstudio.lifehacktest.web.Cards
 
@@ -28,13 +29,13 @@ class CardAdapter(private val listener: Listener) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.name.text = cards[position].name
-        Log.d("CardAdapter", "http://megakohz.bget.ru/test_task/${cards[position].img}")
 
-
-            Glide.with(holder.image.context)
-                .load("http://megakohz.bget.ru/test_task/${cards[position].img}")
-                .placeholder(R.drawable.placeholder_image)
-                .into(holder.image)
+        val requestOption = RequestOptions().placeholder(R.drawable.placeholder_image)
+        Glide.with(holder.image.context)
+            .load("http://megakohz.bget.ru/test_task/${cards[position].img}")
+            .transition(DrawableTransitionOptions.withCrossFade())
+            .apply(requestOption)
+            .into(holder.image)
 
 
         holder.itemView.setOnClickListener {
