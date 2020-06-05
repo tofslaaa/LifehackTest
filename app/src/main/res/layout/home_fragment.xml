@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:fontFamily="@font/cardo_bold"
+        android:fontFamily="@font/lora_bold"
         android:text="@string/company_list"
         android:textAlignment="center"
         android:textSize="18sp" />
@@ -56,11 +56,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:fontFamily="@font/lora"
+                android:visibility="gone"
                 android:text="@string/error"
                 android:textAlignment="center"
-                android:textSize="18sp"
-                android:visibility="gone"
-                app:fontFamily="@font/cardo" />
+                android:textSize="18sp" />
 
             <Space
                 android:layout_width="wrap_content"
