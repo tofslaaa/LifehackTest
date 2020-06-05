@@ -1,6 +1,7 @@
 package com.lifehackstudio.lifehacktest.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.lifehackstudio.lifehacktest.R
@@ -10,11 +11,14 @@ import kotlinx.android.synthetic.main.home_fragment.*
 class HomeFragment : Fragment(R.layout.home_fragment) {
 
     private val presenter by lazy { HomePresenter(viewPresenter) }
+    private val adapter by lazy { CardAdapter(listenerAdapter) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recycler_company.apply {
-            adapter = CardAdapter(listenerAdapter)
+        recycler_company.adapter = this.adapter
+
+        swipe_refresh.setOnRefreshListener {
+
         }
     }
 
@@ -30,17 +34,20 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
 
     private val listenerAdapter = object : CardAdapter.Listener {
         override fun onItemClicked(id: Long) {
-            TODO("Not yet implemented")
+            Log.d("CardAdapter", "click on $id")
         }
     }
 
     private val viewPresenter = object : HomePresenter.View {
         override fun updateRecycler(cards: List<Cards>) {
-
+            adapter.updateItems(cards)
+            progress_bar.visibility = View.GONE
+            recycler_company.visibility = View.VISIBLE
         }
 
         override fun showError() {
-            TODO("Not yet implemented")
+            progress_bar.visibility = View.GONE
+            error.visibility = View.VISIBLE
         }
     }
 
