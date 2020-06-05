@@ -8,7 +8,7 @@ import io.reactivex.schedulers.Schedulers
 
 class HomePresenter(private val view: View) {
 
-    private val testApiService = TestApiService.create()
+    private val testApiService = TestApiService.invoke()
     private val compositeDisposable = CompositeDisposable()
 
     fun onStart() {

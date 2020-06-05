@@ -38,7 +38,7 @@ class CardAdapter(private val listener: Listener) :
 
 
         holder.itemView.setOnClickListener {
-            listener.onItemClicked(cards[position].id)
+            listener.onItemClicked(cards[position].id.toLong())
         }
     }
 

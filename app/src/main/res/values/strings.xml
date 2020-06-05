@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">LifehackTest</string>
     <string name="company_list">Список компаний</string>
-    <string name="error">Упс, что-то пошло не так :(\nПопробуйте еще раз</string>
+    <string name="error_home">Упс, что-то пошло не так :(\nПопробуйте еще раз</string>
+    <string name="error_card">Упс, данные отсутствуют :(\nПосмотрите другую компанию</string>
     <string name="location">Местоположение</string>
 </resources>

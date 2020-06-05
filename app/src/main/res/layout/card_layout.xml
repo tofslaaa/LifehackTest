@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="16dp"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/card_image"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/placeholder_image" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/card_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lora"
+        android:paddingTop="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        tools:text="Cras libero diam, pellentesque sit amet rhoncus a, blandit id neque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc a odio cursus, pretium arcu ut, dignissim metus. Donec ut orci ut enim iaculis ultricies at vitae risus. Integer tincidunt odio eu augue porta lacinia non a arcu. Duis purus nulla, condimentum suscipit aliquam non, facilisis vel neque. Donec elementum, dolor sed accumsan vestibulum, dui augue suscipit mi, vel lacinia libero tortor id enim. Sed sodales, dolor in mattis feugiat, arcu sem venenatis est, in faucibus lorem tortor id dui. Donec luctus at arcu eu commodo. Maecenas dignissim. " />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/phone_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/phone_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_call" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/card_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:autoLink="phone"
+            android:fontFamily="@font/lora"
+            android:textSize="16sp"
+            tools:text="+79875218872" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/site_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/site_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_domain" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/card_site"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:autoLink="web"
+            android:fontFamily="@font/lora"
+            android:textSize="16sp"
+            tools:text="www.sparta-fitness.ru" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/location_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_place" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:alpha=".8"
+                android:fontFamily="@font/lora"
+                android:text="@string/location"
+                android:textColor="@color/black" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
