@@ -1,4 +1,7 @@
 package com.lifehackstudio.lifehacktest.card
 
-class CardFragment {
+import androidx.fragment.app.Fragment
+import com.lifehackstudio.lifehacktest.R
+
+class CardFragment: Fragment(R.layout.card_fragment) {
 }
