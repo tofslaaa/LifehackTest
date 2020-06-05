@@ -18,7 +18,11 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
         recycler_company.adapter = this.adapter
 
         swipe_refresh.setOnRefreshListener {
-
+            swipe_refresh.isRefreshing = true
+            progress_bar.visibility = View.GONE
+            recycler_company.visibility = View.VISIBLE
+            error.visibility = View.GONE
+            presenter.loadCards()
         }
     }
 
@@ -41,11 +45,13 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
     private val viewPresenter = object : HomePresenter.View {
         override fun updateRecycler(cards: List<Cards>) {
             adapter.updateItems(cards)
+            swipe_refresh.isRefreshing = false
             progress_bar.visibility = View.GONE
             recycler_company.visibility = View.VISIBLE
         }
 
         override fun showError() {
+            swipe_refresh.isRefreshing = false
             progress_bar.visibility = View.GONE
             error.visibility = View.VISIBLE
         }

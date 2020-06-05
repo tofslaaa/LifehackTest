@@ -11,10 +11,10 @@ import retrofit2.http.Query
 
 interface TestApiService {
 
-    @GET
+    @GET("test.php")
     fun getCards(): Observable<List<Cards>>
 
-    @GET
+    @GET("test.php")
     fun getCard(@Query("id") id: Long): Maybe<Card>
 
     /**
@@ -25,7 +25,7 @@ interface TestApiService {
             val retrofit = Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("https://megakohz.bget.ru/test_task/test.php")
+                .baseUrl("http://megakohz.bget.ru/test_task/")
                 .build()
 
             return retrofit.create(TestApiService::class.java)

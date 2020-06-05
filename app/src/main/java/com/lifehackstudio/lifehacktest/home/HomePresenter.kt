@@ -12,6 +12,10 @@ class HomePresenter(private val view: View) {
     private val compositeDisposable = CompositeDisposable()
 
     fun onStart() {
+        loadCards()
+    }
+
+    fun loadCards(){
         testApiService.getCards()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

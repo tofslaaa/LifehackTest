@@ -1,5 +1,7 @@
 package com.lifehackstudio.lifehacktest.home
 
+import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,9 +16,11 @@ class CardAdapter(private val listener: Listener) :
     RecyclerView.Adapter<CardAdapter.ViewHolder>() {
 
     private val cards = mutableListOf<Cards>()
+    private lateinit var context: Context
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_card, parent, false)
+        context = parent.context
         return ViewHolder(view)
     }
 
@@ -24,9 +28,14 @@ class CardAdapter(private val listener: Listener) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.name.text = cards[position].name
-        Glide.with(holder.image)
-            .load("https://megakohz.bget.ru/test_task/${cards[position].image}")
-            .into(holder.image)
+        Log.d("CardAdapter", "http://megakohz.bget.ru/test_task/${cards[position].img}")
+
+
+            Glide.with(holder.image.context)
+                .load("http://megakohz.bget.ru/test_task/${cards[position].img}")
+                .placeholder(R.drawable.placeholder_image)
+                .into(holder.image)
+
 
         holder.itemView.setOnClickListener {
             listener.onItemClicked(cards[position].id)
