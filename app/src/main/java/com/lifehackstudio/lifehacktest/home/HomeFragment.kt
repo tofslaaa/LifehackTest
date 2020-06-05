@@ -1,9 +1,10 @@
 package com.lifehackstudio.lifehacktest.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.lifehackstudio.lifehacktest.R
 import com.lifehackstudio.lifehacktest.web.Cards
 import kotlinx.android.synthetic.main.home_fragment.*
@@ -38,7 +39,10 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
 
     private val listenerAdapter = object : CardAdapter.Listener {
         override fun onItemClicked(id: Long) {
-            Log.d("CardAdapter", "click on $id")
+            findNavController().navigate(
+                R.id.action_homeFragment_to_cardFragment,
+                bundleOf("ID" to id)
+            )
         }
     }
 

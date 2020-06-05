@@ -7,7 +7,18 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        tools:layout="@layout/home_fragment"
         android:name="com.lifehackstudio.lifehacktest.home.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment"
+        tools:layout="@layout/home_fragment">
+        <action
+            android:id="@+id/action_homeFragment_to_cardFragment"
+            app:destination="@id/cardFragment"
+            app:enterAnim="@android:anim/slide_out_right"
+            app:exitAnim="@android:anim/slide_in_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardFragment"
+        android:name="com.lifehackstudio.lifehacktest.card.CardFragment"
+        android:label="CardFragment"
+        tools:layout="@layout/card_fragment" />
 </navigation>
